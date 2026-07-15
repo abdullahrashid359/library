@@ -3,9 +3,37 @@
 }
 
 body {
-    text-align: center;
-    padding: auto 3em;
     font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: #111827;
+    color: #f3f4f6;
+}
+
+#library-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0f172a;
+    padding: 1rem 2.5rem;
+    box-shadow: 0px 3px 4px rgba(0,0,0,.2);
+}
+
+button {
+    border-radius: 10px;
+    border: none;
+    padding: 1em 1.5em;
+    color: white;
+}
+
+#new-btn {
+    background-color: #3b82f6;
+    height: 3em;
+    font-size: 1.1em;
+}
+
+#new-btn:hover {
+    cursor: pointer;
+    background-color: #2563eb;
 }
 
 p {
@@ -14,8 +42,11 @@ p {
 
 .library {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 270px);
+    grid-template-columns: repeat(auto-fit, 285px);
     gap: 1.5em;
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+
 }
 
 .card {
@@ -25,11 +56,12 @@ p {
     gap: 1em;
     padding: 1.5em;
     font-size: 1.2em;
-    border: 1px solid;
+    background-color: #374151;
+    border: 1px solid #4b5563;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0px 5px 10px 5px rgba(0,0,0,.2);;
+    box-shadow: 0px 5px 10px 5px rgba(0,0,0,.2);
 }
 
 .card::before {
@@ -37,11 +69,176 @@ p {
     position: absolute;
     top: 0;
     left: 0;
-    background: red;
+    background: #f59e0b;
     height: 100%;
     width: 16px;
 }
 
 .card p {
     align-self: flex-start;
+    color: #d1d5db;
 }
+
+.card h2 {
+    color: #f9fafb;
+}
+
+.card-actions {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5em;
+    gap: 0.5rem;
+}
+
+.card-actions button {
+    flex: 1;
+    padding: 0.75rem;
+    white-space: nowrap;
+    width: 120px;
+    font-weight: 600;
+}
+
+.read-btn {
+    background-color: #3b82f6;
+}
+
+.unread-btn {
+    background-color: #10b981;
+}
+
+.read-btn:hover {
+    cursor: pointer;
+    background-color: #0a67fe;
+}
+
+.unread-btn:hover {
+    cursor: pointer;
+    background-color: #059669;
+}
+
+.card-actions button:last-child {
+    background-color: #ef4444;
+}
+
+.card-actions button:last-child:hover {
+    cursor: pointer;
+    background-color: rgb(134, 22, 22);
+}
+
+dialog {
+    background-color: #374151;
+    color: #f3f4f6;
+    border-style: none;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px 5px rgba(0,0,0,.2);
+    padding: 2rem;
+    width: 350px;
+}
+
+dialog::backdrop {
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+dialog h2 {
+    color: #f9fafb;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#close-btn {
+    background-color: #4b5563;
+    color: #f9fafb;
+    font-weight: bold;
+}
+
+#close-btn:hover {
+    cursor: pointer;
+    background-color: #6b7280;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+form > div {
+    display: flex;
+    align-items: center;
+
+}
+
+form > div label {
+    width: 70px;
+    color: #d1d5db;
+    font-weight: 500;
+}
+
+form > div input {
+    width: 200px;
+    height: 1.5rem;
+    background-color: #1f2937;
+    color: #f9fafb;
+    padding: auto 1.5rem;
+    border-radius: 6px;
+    border-color: #4b5563;
+    border: 0.1em solid;
+}
+
+input::placeholder {
+    color: #9ca3af;
+}
+
+div input:focus {
+    border-color: #3b82f6;
+    outline: none;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+legend {
+    font-weight: 500;
+    color: #f3f4f6;
+    padding: 0;
+    margin-bottom: 0.5rem;
+}
+
+ul {
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+input[type="radio"] {
+    cursor: pointer;
+}
+
+#add-btn {
+    background-color: #3b82f6;
+    font-weight: 600;
+    width: 100%;
+}
+
+#add-btn:hover {
+    cursor: pointer;
+    background-color: #2563eb;
+}
+

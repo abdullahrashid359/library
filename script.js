@@ -68,6 +68,9 @@ function displayBooks() {
         status.textContent = "Status: " + (book.haveRead ? "Read" : "Not read yet");
         status.classList.add("status")
 
+        const actions = document.createElement("div");
+        actions.classList.add("card-actions");
+
         const removeBtn = document.createElement("button");
         removeBtn.textContent = "Remove";
         removeBtn.addEventListener("click", (event) => {
@@ -79,21 +82,33 @@ function displayBooks() {
 
         const toggleBtn = document.createElement("button");
         toggleBtn.textContent = book.haveRead ? "Mark as unread" : "Mark as read";
+        if (book.haveRead) {
+            toggleBtn.classList.add("read-btn");
+        } 
+        else {
+            toggleBtn.classList.add("unread-btn");
+        }
+
         toggleBtn.addEventListener("click", (event) => {
             const id = event.target.closest(".card").dataset.id;
             const index = myLibrary.findIndex(book => book.id === id);
             myLibrary[index].toggleStatus();
+            toggleBtn.classList.toggle("read-btn");
+            toggleBtn.classList.toggle("unread-btn");
+            
             event.target.closest(".card").querySelector(".status").textContent = "Status: " + (myLibrary[index].haveRead ? "Read" : "Not read yet");
+
             event.target.textContent = myLibrary[index].haveRead ? "Mark as unread" : "Mark as read";
         })
         
 
+        actions.appendChild(toggleBtn);
+        actions.appendChild(removeBtn);
         card.appendChild(title);
         card.appendChild(author);
         card.appendChild(pages);
         card.appendChild(status);
-        card.appendChild(removeBtn);
-        card.appendChild(toggleBtn);
+        card.appendChild(actions);
 
         library.appendChild(card);
     }
@@ -109,7 +124,6 @@ const closeBtn = document.querySelector("#close-btn");
 const title = document.querySelector("#title");
 const author = document.querySelector("#author");
 const pages = document.querySelector("#pages");
-const selectedRadio = document.querySelector('input[name="status"]:checked');
 
 newBookBtn.addEventListener("click", () => {
     dialog.showModal();
@@ -117,9 +131,10 @@ newBookBtn.addEventListener("click", () => {
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
+    const selectedRadio = document.querySelector('input[name="status"]:checked');
     const status = selectedRadio.value === "yes";
 
-    addBookToLibrary(title.value, author.value, pages.value, status);
+    addBookToLibrary(title.value, author.value, +pages.value, status);
     displayBooks();
     form.reset();
     dialog.close();
