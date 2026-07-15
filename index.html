@@ -15,5 +15,46 @@
     <div class="library">
 
     </div>
+    <dialog id="new-book-dlg">
+        <div class="form-header">
+            <h2>New Book</h2>
+            <button id="close-btn" type="button">Close</button>
+        </div>
+        <form method="dialog">
+            <div>
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" required autofocus placeholder="e.g. To Kill a Mockingbird">
+            </div>
+
+            <div>
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" required placeholder="e.g. Harper Lee">
+            </div>
+
+            <div>
+                <label for="pages">Pages</label>
+                <input type="number" id="pages" name="pages" min="1" required placeholder="265">
+            </div>
+
+            <fieldset>
+                <legend>Have you read it already?</legend>
+                <ul>
+                <li>
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="yes" name="status" value="yes" required checked>
+                </li>
+                
+                <li>
+                    <label for="no">No</label>
+                    <input type="radio" id="no" name="status" value="no">
+                </li>
+                </ul>
+            </fieldset>
+            <div class="add-btn-div">
+                <button id="add-btn" type="submit">Add Book</button>
+            </div>
+        </form>
+    </dialog>
+    <button id="new-btn">New Book</button>
 </body>
 </html>
