@@ -185,7 +185,7 @@ form > div input {
     height: 1.5rem;
     background-color: #1f2937;
     color: #f9fafb;
-    padding: auto 1.5rem;
+    padding: 0 0.5rem;
     border-radius: 6px;
     border-color: #4b5563;
     border: 0.1em solid;
