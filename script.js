@@ -1,22 +1,17 @@
 const myLibrary = [];
 
-function Book (id, title, author, pages, haveRead) {
-    if(!new.target)
-        throw new Error ("You must use the 'new' operator to call the constructor");
+class Book {
+    constructor (id, title, author, pages, haveRead) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.haveRead = haveRead;
+    }
 
-    this.id = id;
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.haveRead = haveRead;
-}
-
-Book.prototype.info = function () {
-    return `${this.title} by ${this.author}, ${this.pages}, ${this.haveRead ? "Read" : "Not read yet"}`;
-}
-
-Book.prototype.toggleStatus = function () {
-    this.haveRead = !this.haveRead;
+    toggleStatus () {
+        this.haveRead = !this.haveRead;
+    }
 }
 
 function addBookToLibrary(title, author, pages, haveRead) {
